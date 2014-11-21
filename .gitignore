@@ -1,0 +1,3 @@
+tests/app/Dockerfile
+tests/buildfiles/Dockerfile
+tests/onbuild/Dockerfile

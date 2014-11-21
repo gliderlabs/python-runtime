@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -eo pipefail
+
+main() {
+	declare image="$1"
+	local dir="$(dirname $BASH_SOURCE)"
+	local output="$(docker run --rm $image cat /etc/buildfiles)"
+	local expected="$(cat $dir/expected)"
+	[[ "$output" = "$expected" ]]  || {
+		echo "!! /etc/buildfiles contents not what was expected"
+		exit 127
+	}
+}
+
+main "$@"

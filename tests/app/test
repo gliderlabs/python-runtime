@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -eo pipefail
+
+main() {
+	declare image="$1"	
+}
+
+main "$@"
