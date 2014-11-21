@@ -2,8 +2,25 @@
 
 set -eo pipefail
 
+use-ip() {
+	if which boot2docker > /dev/null; then
+		boot2docker ip 2> /dev/null
+	else
+		echo "127.0.0.1"
+	fi
+}
+
 main() {
 	declare image="$1"	
+	local dir="$(dirname $BASH_SOURCE)"
+	local id="$(docker run -d -P $image)"
+	trap "docker rm -f $id" EXIT
+	local addr="$(docker port $id 8080)"
+	local output="$(curl -s ${addr/0.0.0.0/$(use-ip)})"
+	[[ "$output" = "Hello World!" ]]  || {
+		echo "!! curl response not expected: $output"
+		exit 127
+	}
 }
 
 main "$@"

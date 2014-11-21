@@ -25,6 +25,7 @@ main() {
 		set +x
 		cd - > /dev/null
 	done
+	echo "TESTS PASS"
 }
 
 main

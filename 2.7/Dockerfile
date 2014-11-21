@@ -4,8 +4,8 @@ MAINTAINER Glider Labs <team@gliderlabs.com>
 ENV PYTHON_VERSION 2.7
 
 RUN apt-get update -y \
-	&& apt-get install --no-install-recommends -y -q \
-    	build-essential python$PYTHON_VERSION python$PYTHON_VERSION-dev python-pip \
+    && apt-get install --no-install-recommends -y -q \
+        build-essential python$PYTHON_VERSION python$PYTHON_VERSION-dev python-pip \
     && apt-get clean \
     && pip install -U pip \
     && hash -r \

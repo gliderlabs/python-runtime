@@ -4,12 +4,12 @@ MAINTAINER Glider Labs <team@gliderlabs.com>
 ENV PYTHON_VERSION 3.4
 
 RUN apt-get update -y \
-	&& apt-get install --no-install-recommends -y -q \
-    	build-essential python$PYTHON_VERSION python$PYTHON_VERSION-dev python-pip \
+    && apt-get install --no-install-recommends -y -q \
+        build-essential python$PYTHON_VERSION python$PYTHON_VERSION-dev python3-pip \
     && apt-get clean \
-    && pip install -U pip \
+    && pip3 install -U pip \
     && hash -r \
-    && pip install virtualenv \
+    && pip3 install virtualenv \
     && echo "Dockerfile" >> /etc/buildfiles \
     && echo ".onbuild" >> /etc/buildfiles \
     && echo "requirements.txt" >> /etc/buildfiles
