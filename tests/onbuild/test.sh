@@ -9,7 +9,7 @@ testOnbuild() {
 
 		local output="$(docker run --rm $image which wget 2> /dev/null)"
 		assertEquals "wget is not installed" \
-			"/usr/bin/wget" "$output"
+			"/usr/bin/wgett" "$output"
 		
 		docker rmi "$image" > /dev/null 2>&1
 	done
