@@ -19,10 +19,10 @@ testApp() {
 		sleep 1
 		local addr="$(docker port $id 8080)"
 		local output="$(curl -s ${addr/0.0.0.0/$(use-ip)})"
-		docker rm -f "$id"
+		docker rm -f "$id" > /dev/null
 		assertEquals "curl response not expected: $output" \
 			"Hello World!" "$output"
 
-		docker rmi "$image" > /dev/null
+		docker rmi "$image" > /dev/null 2>&1
 	done
 }

@@ -11,6 +11,6 @@ testOnbuild() {
 		assertEquals "wget is not installed" \
 			"/usr/bin/wget" "$output"
 		
-		docker rmi "$image" > /dev/null
+		docker rmi "$image" > /dev/null 2>&1
 	done
 }

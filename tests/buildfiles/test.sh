@@ -12,6 +12,6 @@ testBuildfiles() {
 		assertEquals "/etc/buildfiles content not what was expected" \
 			"$expected" "$output"
 		
-		docker rmi "$image" > /dev/null
+		docker rmi "$image" > /dev/null 2>&1
 	done
 }
