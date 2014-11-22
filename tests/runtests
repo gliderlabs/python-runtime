@@ -1,0 +1,9 @@
+#!/bin/bash
+
+readonly VERSIONS="2.7 3.4"
+
+main() {
+	. "$(dirname $BASH_SOURCE)/shunit2"
+}
+
+main "$@"

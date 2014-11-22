@@ -1,0 +1,14 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - make build
+
+test:
+  override:
+    - tests/runtests:
+        parallel: true
+        files:
+          - tests/**/test.sh

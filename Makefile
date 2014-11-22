@@ -4,4 +4,4 @@ build:
 	cd 3.4 && docker build -t python-runtime:3.4 .
 
 test: build
-	tests/runall
+	tests/runtests tests/**/test.sh
