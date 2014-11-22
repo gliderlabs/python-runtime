@@ -12,3 +12,9 @@ test:
         parallel: true
         files:
           - tests/**/test.sh
+
+deployment:
+  dockerhub:
+    branch: master
+    commands:
+      - git push https://github.com/gliderlabs/python-runtime.git $CIRCLE_SHA1:release
