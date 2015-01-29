@@ -1,14 +1,10 @@
-FROM ubuntu-debootstrap:trusty
-MAINTAINER Glider Labs <team@gliderlabs.com>
+FROM gliderlabs/alpine:3.1
 
-ENV PYTHON_VERSION 2.7
-
-RUN apt-get update -y \
-    && apt-get install --no-install-recommends -y -q \
-        build-essential python$PYTHON_VERSION python$PYTHON_VERSION-dev python-pip \
-    && apt-get clean \
-    && pip install -U pip \
-    && hash -r \
+RUN apk-install \
+        python \
+        python-dev \
+        py-pip \
+        build-base \
     && pip install virtualenv \
     && echo "Dockerfile" >> /etc/buildfiles \
     && echo ".onbuild" >> /etc/buildfiles \
