@@ -1,6 +1,6 @@
-FROM gliderlabs/alpine:3.1
+FROM gliderlabs/alpine:3.2
 
-RUN apk-install -X http://dl-4.alpinelinux.org/alpine/edge/testing \
+RUN apk-install \
         python3 \
         python3-dev \
         build-base \
